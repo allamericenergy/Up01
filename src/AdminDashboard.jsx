@@ -20,6 +20,7 @@ function AdminDashboard() {
     const [totalMeters, setTotalMeters] = useState(0);
     const [totalPeople, setTotalPeople] = useState(0);
     const [totalContracts, setTotalContracts] = useState(0);
+    const API = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
 
@@ -38,7 +39,7 @@ function AdminDashboard() {
                 localStorage.getItem('token');
 
             const res = await fetch(
-                'http://localhost:5000/api/auth/total-companies',
+                `${API}/api/auth/total-companies`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -63,7 +64,7 @@ function AdminDashboard() {
             const token =
                 localStorage.getItem('token');
             const res = await fetch(
-                'http://localhost:5000/api/auth/total-meters',
+                `${API}/api/auth/total-meters`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -84,7 +85,7 @@ function AdminDashboard() {
             const token =
                 localStorage.getItem('token');
             const res = await fetch(
-                'http://localhost:5000/api/auth/total-people',
+                `${API}/api/auth/total-people`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -105,7 +106,7 @@ function AdminDashboard() {
             const token =
                 localStorage.getItem('token');
             const res = await fetch(
-                'http://localhost:5000/api/auth/total-contracts',
+                `${API}/api/auth/total-contracts`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

@@ -6,6 +6,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const API = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ function Login() {
       setLoading(true);
 
       const res = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        `${API}/api/auth/login`,
         {
           email,
           password,
@@ -41,7 +42,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-left">
-       {/*  <div className="overlay">
+        {/*  <div className="overlay">
           <h1>CRM Portal</h1>
           <p>
             Manage customers, leads, invoices,
@@ -53,9 +54,9 @@ function Login() {
       <div className="login-right">
         <div className="login-card">
           <img
-            src="/src/assets/Logo.jpg"
+            src="./src/assets/Logo.jpg"
             alt="All American Energy Logo"
-             width={200} height={75}
+            width={200} height={75}
           />
           <br />
           <br />
